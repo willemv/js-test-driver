@@ -45,6 +45,9 @@ public interface Flags {
 
   @GuiceBinding(name="arguments", parameterizedType = String.class)
   public List<String> getArguments();
+  
+  @GuiceBinding(name="url")
+  public String getUrl();
 
   @GuiceBinding(name="testOutput")
   public String getTestOutput();

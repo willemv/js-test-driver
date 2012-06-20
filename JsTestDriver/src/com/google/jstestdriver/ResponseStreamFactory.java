@@ -27,4 +27,5 @@ public interface ResponseStreamFactory {
   ResponseStream getDryRunActionResponseStream();
   ResponseStream getEvalActionResponseStream();
   ResponseStream getResetActionResponseStream();
+  ResponseStream getVisitActionResponseStream(String url);
 }

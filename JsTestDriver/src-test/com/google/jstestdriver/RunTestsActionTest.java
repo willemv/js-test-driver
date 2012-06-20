@@ -104,6 +104,10 @@ public class RunTestsActionTest extends TestCase {
     public ResponseStream getDryRunActionResponseStream() {
       return null;
     }
+
+    public ResponseStream getVisitActionResponseStream(String url) {
+      return null;
+    }
   }
 
   private static final class ResponseStreamStub implements ResponseStream {

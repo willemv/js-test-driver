@@ -73,6 +73,11 @@ public class JsTestDriverClientTest extends TestCase {
     public ResponseStream getRunTestsActionResponseStream(String testId) {
       return stream;
     }
+
+    @Override
+    public ResponseStream getVisitActionResponseStream(String url) {
+      return stream;
+    }
   }
 
   public static class FakeResponseStream implements ResponseStream {

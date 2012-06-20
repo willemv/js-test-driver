@@ -78,6 +78,10 @@ public class AggregatingResponseStreamFactoryTest extends TestCase {
       responseStream.setBrowserId(browserId);
       return responseStream;
     }
+
+    public ResponseStream getVisitActionResponseStream(String url) {
+      return responseStream;
+    }
   }
 
   public void testGetRunTestsActionResponseStream() throws Exception {

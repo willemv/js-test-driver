@@ -92,6 +92,9 @@ public class BrowserStartupActionTest extends TestCase {
         JstdTestCase testCase) {
     }
 
+    public void visit(String id, ResponseStream responseStream, String url, JstdTestCase testCase) {
+    }
+
     public String getNextBrowserId() {
       return nextId;
     }

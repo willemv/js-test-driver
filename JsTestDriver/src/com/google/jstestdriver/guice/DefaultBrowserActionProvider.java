@@ -38,6 +38,7 @@ public class DefaultBrowserActionProvider implements BrowserActionProvider {
   private final List<String> dryRunFor;
   private final List<String> tests;
   private final List<String> commands;
+  private final String visitUrl;
   private final ResponseStreamFactory responseStreamFactory;
   private final boolean captureConsole;
 
@@ -48,7 +49,8 @@ public class DefaultBrowserActionProvider implements BrowserActionProvider {
       @Named("dryRunFor") List<String> dryRunFor,
       @Named("captureConsole") boolean captureConsole,
       @Named("tests") List<String> tests,
-      @Named("arguments") List<String> commands) {
+      @Named("arguments") List<String> commands,
+      @Named("url") String visitUrl) {
     this.actionFactory = actionFactory;
     this.reset = reset;
     this.dryRunFor = dryRunFor;
@@ -56,6 +58,7 @@ public class DefaultBrowserActionProvider implements BrowserActionProvider {
     this.tests = tests;
     this.commands = commands;
     this.responseStreamFactory = responseStreamFactory;
+    this.visitUrl = visitUrl;
   }
 
   public List<BrowserAction> get() {
@@ -76,6 +79,9 @@ public class DefaultBrowserActionProvider implements BrowserActionProvider {
       for (String cmd : commands) {
         threadedActions.add(actionFactory.createEvalAction(responseStreamFactory, cmd));
       }
+    }
+    if (visitUrl != null && !visitUrl.isEmpty()) {
+      threadedActions.add(actionFactory.createVisitAction(responseStreamFactory, visitUrl));
     }
     return threadedActions;
   }

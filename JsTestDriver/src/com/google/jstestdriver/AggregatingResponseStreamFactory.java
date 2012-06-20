@@ -77,6 +77,15 @@ public class AggregatingResponseStreamFactory implements ResponseStreamFactory {
     return new AggregatingResponseStream(streams);
   }
 
+  @Override
+  public ResponseStream getVisitActionResponseStream(String url) {
+    List<ResponseStream> streams = defaultStreams();
+    for (ResponseStreamFactory factory : factories) {
+      streams.add(factory.getVisitActionResponseStream(url));
+    }
+    return new AggregatingResponseStream(streams);
+  }
+
   public static class AggregatingResponseStream implements ResponseStream {
 
     private final List<ResponseStream> streams;

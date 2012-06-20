@@ -58,6 +58,7 @@ public class FlagsImpl implements Flags {
   private long browserTimeout = SlaveBrowser.TIMEOUT;
   private ConfigurationSource config = new DefaultConfigurationSource();
   private List<String> tests = new ArrayList<String>();
+  private String url = "";
   private boolean displayHelp = false;
   private boolean verbose = false;
   private boolean captureConsole = false;
@@ -176,6 +177,17 @@ public class FlagsImpl implements Flags {
     return tests;
   }
 
+  @Option(name="--url",
+      usage="Visits the urls")
+  public void setUrls(String url) {
+    this.url = url;
+  }
+
+  @Override
+  public String getUrl() {
+    return url;
+  }
+
   @Option(name="--help", usage="Help")
   public void setDisplayHelp(boolean displayHelp) {
     this.displayHelp = displayHelp;
@@ -283,12 +295,13 @@ public class FlagsImpl implements Flags {
 
   @Override
   public String toString() {
-    return "FlagsImpl [port=" + port + ",\n sslPort=" + sslPort + ",\n server=" + server
+    return "FlagsImpl [\n port=" + port + ",\n sslPort=" + sslPort + ",\n server=" + server
         + ",\n testOutput=" + testOutput + ",\n browser=" + browser + ",\n reset=" + reset
         + ",\n browserTimeout=" + browserTimeout + ",\n config=" + config + ",\n tests=" + tests
-        + ",\n displayHelp=" + displayHelp + ",\n verbose=" + verbose + ",\n captureConsole="
-        + captureConsole + ",\n preloadFiles=" + preloadFiles + ",\n dryRunFor=" + dryRunFor
-        + ",\n arguments=" + arguments + ",\n runnerMode=" + runnerMode + ",\n requiredBrowsers="
-        + requiredBrowsers + ",\n serverHandlerPrefix=" + serverHandlerPrefix + "\n raiseOnFailure=" + raiseOnFailure + "]";
+        + ",\n displayHelp=" + displayHelp + ",\n verbose=" + verbose + ",\n url=" + url
+        + ",\n captureConsole=" + captureConsole + ",\n preloadFiles=" + preloadFiles
+        + ",\n dryRunFor=" + dryRunFor + ",\n arguments=" + arguments + ",\n runnerMode=" + runnerMode
+        + ",\n requiredBrowsers=" + requiredBrowsers + ",\n serverHandlerPrefix=" + serverHandlerPrefix
+        + ",\n raiseOnFailure=" + raiseOnFailure + "]";
   }
 }

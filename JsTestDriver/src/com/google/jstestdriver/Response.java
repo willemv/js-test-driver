@@ -41,7 +41,8 @@ public class Response {
     BROWSER_READY(LoadedFiles.class),
     COMMAND_RESULT(null),
     NOOP(Noop.class),
-    LOG(BrowserLog.class);
+    LOG(BrowserLog.class),
+    VISIT(null);
 
     public final Type type;
 

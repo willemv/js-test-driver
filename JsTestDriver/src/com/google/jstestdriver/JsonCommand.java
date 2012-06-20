@@ -33,7 +33,8 @@ public class JsonCommand {
     DRYRUN("dryRun"),
     DRYRUNFOR("dryRunFor"),
     NOOP("noop"),
-    RUNALLTESTS("runAllTests");
+    RUNALLTESTS("runAllTests"),
+    VISIT("visit");
 
     private final String command;
 

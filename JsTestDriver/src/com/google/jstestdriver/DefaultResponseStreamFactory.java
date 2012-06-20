@@ -72,4 +72,9 @@ public class DefaultResponseStreamFactory implements ResponseStreamFactory {
   public ResponseStream getResetActionResponseStream() {
     return new ResetActionResponseStream(out);
   }
+
+  @Override
+  public ResponseStream getVisitActionResponseStream(String url) {
+    return new VisitAction.VisitActionResponseStream(out, url);
+  }
 }

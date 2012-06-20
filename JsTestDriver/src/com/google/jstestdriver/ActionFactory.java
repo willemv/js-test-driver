@@ -109,6 +109,10 @@ public class ActionFactory {
     return new EvalAction(responseStreamFactory, cmd);
   }
 
+  public VisitAction createVisitAction(ResponseStreamFactory responseStreamFactory, String url) {
+    return new VisitAction(responseStreamFactory, url);
+  }
+
   public JsTestDriverClient getJsTestDriverClient(Set<FileInfo> filesList, String serverAddress) {
     return clientProvider.get();
   }

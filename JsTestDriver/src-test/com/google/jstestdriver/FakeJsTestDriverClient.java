@@ -54,6 +54,9 @@ final public class FakeJsTestDriverClient implements JsTestDriverClient {
   public void dryRun(String id, ResponseStream responseStream, JstdTestCase testCase) {
   }
 
+  public void visit(String id, ResponseStream responseStream, String url, JstdTestCase testCase) {
+  }
+
   public void assertTestRun(FakeJsTestDriverClient.TestRun expected) {
     RunTestsActionTest.assertEquals(expected, testRun);
   }

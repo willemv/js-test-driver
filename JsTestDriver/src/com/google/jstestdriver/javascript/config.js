@@ -180,6 +180,7 @@ jstestdriver.config = (function(module) {
         jstestdriver.now);
 
     var noopCommand = new jstestdriver.NoopCommand(streamStop, getBrowserInfo);
+    var visitCommand = new jstestdriver.VisitCommand(streamStop, getBrowserInfo);
 
     executor.registerCommand('execute', executor, executor.execute);
     executor.registerCommand('noop', noopCommand, noopCommand.sendNoop);
@@ -189,6 +190,7 @@ jstestdriver.config = (function(module) {
     executor.registerCommand('reset', resetCommand, resetCommand.reset);
     executor.registerCommand('dryRun', executor, executor.dryRun);
     executor.registerCommand('dryRunFor', executor, executor.dryRunFor);
+    executor.registerCommand('visit', visitCommand, visitCommand.visitUrl);
     executor.registerCommand('unknownBrowser', null, function() {
       // TODO(corysmith): handle this better.
     });

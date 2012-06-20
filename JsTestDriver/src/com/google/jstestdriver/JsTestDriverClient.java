@@ -47,6 +47,8 @@ public interface JsTestDriverClient {
   public void dryRunFor(String id, ResponseStream responseStream, List<String> expressions,
       JstdTestCase testCase);
 
+  public void visit(String id, ResponseStream responseStream, String url, JstdTestCase testCase);
+  
   /** Asks the server for the next browser id. */
   public String getNextBrowserId();
 

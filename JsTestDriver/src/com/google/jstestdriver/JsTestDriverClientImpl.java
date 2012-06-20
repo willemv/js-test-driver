@@ -160,6 +160,14 @@ public class JsTestDriverClientImpl implements JsTestDriverClient {
   }
 
   @Override
+  public void visit(String id, ResponseStream responseStream, String url, JstdTestCase testCase) {
+    List<String> parameters = new LinkedList<String>();
+    parameters.add(url);
+    JsonCommand cmd = new JsonCommand(CommandType.VISIT, parameters);
+    sendCommand(id, responseStream, gson.toJson(cmd), false, testCase);
+  }
+
+  @Override
   public void uploadFiles(String browserId, JstdTestCase testCase) {
     uploader.uploadFileSet(browserId, Lists.<JstdTestCase>newArrayList(testCase), new BrowserPanicResponseStream());
   }

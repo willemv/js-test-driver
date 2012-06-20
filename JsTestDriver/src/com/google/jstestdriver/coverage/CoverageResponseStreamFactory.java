@@ -50,6 +50,10 @@ public class CoverageResponseStreamFactory implements ResponseStreamFactory {
     return NULL_RESPONSE_STREAM;
   }
 
+  public ResponseStream getVisitActionResponseStream(String url) {
+    return NULL_RESPONSE_STREAM;
+  }
+
   public ResponseStream getRunTestsActionResponseStream(String browserId) {
     return new CoverageTestResponseStream(browserId, coverageAccumulator,
         testResultGenerator);

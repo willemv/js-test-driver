@@ -25,6 +25,7 @@
     Signal.js,
     PageUnloadHandler.js,
     ResetCommand.js,
+    VisitCommand.js,
     NoopCommand.js,
     Response.js,
     Asserts.js,
