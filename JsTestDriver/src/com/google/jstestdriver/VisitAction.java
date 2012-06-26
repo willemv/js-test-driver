@@ -37,8 +37,9 @@ public class VisitAction implements BrowserAction {
 
     @Override
     public void stream(Response response) {
-      String browserName = response.getBrowser().getName();
-      out.println(String.format("%s: visiting %s", browserName, url));
+      BrowserInfo browser = response.getBrowser();
+      out.println(String.format("%s %s %s: visiting %s",
+          browser.getName(), browser.getVersion(), browser.getOs(), url));
     }
 
     @Override
